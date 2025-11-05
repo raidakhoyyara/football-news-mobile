@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 // TODO: Impor drawer yang sudah dibuat sebelumnya
-import 'packagepackage:football_news/widgets/left_drawer.dart';
+import 'package:football_news/widgets/left_drawer.dart';
 
 class NewsFormPage extends StatefulWidget {
     const NewsFormPage({super.key});
@@ -69,7 +69,7 @@ class _NewsFormPageState extends State<NewsFormPage> {
                                         return null;
                                     },
                                 ),
-                            )
+                            ),
 
                             // === Content ===
                             Padding(
@@ -95,7 +95,7 @@ class _NewsFormPageState extends State<NewsFormPage> {
                                         return null;
                                     },
                                 ),
-                            )
+                            ),
 
                             // === Category ===
                             Padding(
@@ -158,59 +158,60 @@ class _NewsFormPageState extends State<NewsFormPage> {
 
                             // === Tombol Simpan ===
                             Align(
-                            alignment: Alignment.bottomCenter,
-                            child: Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: ElevatedButton(
-                                style: ButtonStyle(
-                                    backgroundColor:
-                                        MaterialStateProperty.all(Colors.indigo),
-                                ),
-                                onPressed: () {
-                                    if (_formKey.currentState!.validate()) {
-                                    showDialog(
-                                        context: context,
-                                        builder: (context) {
-                                        return AlertDialog(
-                                            title: const Text('Berita berhasil disimpan!'),
-                                            content: SingleChildScrollView(
-                                            child: Column(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                Text('Judul: $_title'),
-                                                Text('Isi: $_content'),
-                                                Text('Kategori: $_category'),
-                                                Text('Thumbnail: $_thumbnail'),
-                                                Text(
-                                                    'Unggulan: ${_isFeatured ? "Ya" : "Tidak"}'),
-                                                ],
-                                            ),
-                                            ),
-                                            actions: [
-                                            TextButton(
-                                                child: const Text('OK'),
-                                                onPressed: () {
-                                                    Navigator.pop(context);
+                                alignment: Alignment.bottomCenter,
+                                child: Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                   
+                        
+
+                                    child: ElevatedButton(
+                                        style: ButtonStyle(
+                                            backgroundColor:
+                                                MaterialStateProperty.all(Colors.indigo),
+                                        ),
+                                        onPressed: () {
+                                            if (_formKey.currentState!.validate()) {
+                                            showDialog(
+                                                context: context,
+                                                builder: (context) {
+                                                return AlertDialog(
+                                                    title: const Text('Berita berhasil tersimpan'),
+                                                    content: SingleChildScrollView(
+                                                    child: Column(
+                                                        crossAxisAlignment:
+                                                            CrossAxisAlignment.start,
+                                                        children: [
+                                                        Text('Judul: $_title'),
+                                                            Text('Isi: $_content'),
+                                                            Text('Kategori: $_category'),
+                                                            Text('Thumbnail: $_thumbnail'),
+                                                            Text(
+                                                                'Unggulan: ${_isFeatured ? "Ya" : "Tidak"}'),
+                                                        ],
+                                                    ),
+                                                    ),
+                                                    actions: [
+                                                    TextButton(
+                                                        child: const Text('OK'),
+                                                        onPressed: () {
+                                                        Navigator.pop(context);
+                                                        _formKey.currentState!.reset();
+                                                        },
+                                                    ),
+                                                    ],
+                                                );
                                                 },
-                                            ),
-                                            ],
-                                        );
+                                            );
+                                        
+                                            }
                                         },
-                                    );
-                                    _formKey.currentState!.reset();
-                                    }
-                                },
-                                child: const Text(
-                                    "Save",
-                                    style: TextStyle(color: Colors.white),
-                                ),
+                                        child: const Text(
+                                            "Save",
+                                            style: TextStyle(color: Colors.white),
+                                        ),
+                                    ),
                                 ),
                             ),
-                            ),
-  
-
-
                         ],
                     ),
                 ),
