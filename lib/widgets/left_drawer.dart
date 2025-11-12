@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:football_news/screens/menu.dart';
+import 'package:football_news/screens/newslist_form.dart';
+import 'package:football_news/screens/news_entry_list.dart';
 
 class LeftDrawer extends StatelessWidget {
     const LeftDrawer({super.key});
@@ -51,15 +53,31 @@ class LeftDrawer extends StatelessWidget {
                 },
                 ),
                 ListTile(
-                leading: const Icon(Icons.post_add),
-                title: const Text('Add News'),
-                // Bagian redirection ke NewsFormPage
-                onTap: () {
-                    /*
-                    TODO: Buatlah routing ke NewsFormPage di sini,
-                    setelah halaman NewsFormPage sudah dibuat.
-                    */
-                },
+                    leading: const Icon(Icons.post_add),
+                    title: const Text('Add News'),
+                    // Bagian redirection ke NewsFormPage
+                    onTap: () {
+                        /*
+                        TODO: Buatlah routing ke NewsFormPage di sini,
+                        setelah halaman NewsFormPage sudah dibuat.
+                        */
+                        Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => NewsFormPage(), 
+                        ));
+                    },
+                ),
+                ListTile(
+                    leading: const Icon(Icons.add_reaction_rounded),
+                    title: const Text('News List'),
+                    onTap: () {
+                        // Route to news list page
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => const NewsEntryListPage()),
+                        );
+                    },
                 ),
             ],
         ),
